@@ -1,0 +1,15 @@
+addition = Add
+firstname = First Name
+secondname = Surname
+fathername = Patronymic
+adr = Adress
+birthplc = Birth place
+birthDay = Birthday
+ill = Illness
+emptyFild = Please! Fill out all the forms
+notchosen = Please! Choose patient first
+from = From
+to = To
+datechoice = Choose any date!
+search = Search
+nodata = There is no data

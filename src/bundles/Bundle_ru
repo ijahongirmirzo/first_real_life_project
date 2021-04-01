@@ -1,0 +1,15 @@
+addition = Добавлять
+firstname = Имя
+secondname = Фамилия
+fathername = Отчество
+adr = Адрес
+birthplc = Место рождения
+birthDay = День рождения
+ill = Болезнь
+emptyFild = Пожалуйста! Заполните все формы
+notchosen = Пожалуйста! Сначала выберите пациента
+from = От
+to = До
+datechoice = Выберите любую дату!
+search = Поиск
+nodata = Нет данных

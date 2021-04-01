@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import com.jfoenix.controls.JFXTreeTableView?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.Blend?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="768.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.TableViewController">
+   <top>
+      <AnchorPane fx:id="rootPane" prefHeight="37.0" prefWidth="1200.0" style="-fx-background-color: #FFFFF;" BorderPane.alignment="CENTER">
+         <children>
+            <JFXTextField fx:id="searchField" focusColor="#0fbcf9" labelFloat="true" layoutX="175.0" onKeyPressed="#searchFieldListener" prefHeight="34.0" prefWidth="255.0" promptText="Search" style="-fx-background-color: transparent;" unFocusColor="#1ea9d300" />
+            <JFXDatePicker fx:id="fromDatePicker" defaultColor="#11c0f5f0" layoutX="438.0" layoutY="8.0" prefHeight="26.0" prefWidth="150.0" promptText="choose date" />
+            <Text fontSmoothingType="LCD" layoutX="588.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" text="from" wrappingWidth="36.12890625" />
+            <JFXDatePicker fx:id="toDatePicker" defaultColor="#0fbcf9" layoutX="624.0" layoutY="8.0" prefHeight="24.0" prefWidth="150.0" promptText="choose date" />
+            <Text fontSmoothingType="LCD" layoutX="782.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" text="to" wrappingWidth="41.12890625" />
+            <JFXButton id="filter-button" fx:id="filterButton" layoutX="811.0" layoutY="5.0" onAction="#filterButtonHandler" prefHeight="30.0" prefWidth="95.0" stylesheets="@../design.css" text="Filter" textFill="WHITE" textOverrun="CLIP" />
+            <JFXButton id="add-button" cache="true" layoutX="1061.0" layoutY="6.0" onAction="#newButtonHandler" prefHeight="28.0" prefWidth="119.0" ripplerFill="WHITE" stylesheets="@../design.css" text="         Add new" textFill="WHITE">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <effect>
+                  <Blend />
+               </effect></JFXButton>
+            <AnchorPane layoutY="-4.0" prefHeight="42.0" prefWidth="147.0" style="-fx-background-color: #0fbcf9;" stylesheets="@../design.css">
+               <children>
+                  <FontAwesomeIcon fill="WHITE" glyphName="EXCHANGE" layoutX="60.0" layoutY="30.0" size="2em" />
+                  <FontAwesomeIcon fill="WHITE" glyphName="HEARTBEAT" layoutX="14.0" layoutY="30.0" size="2em" />
+                  <FontAwesomeIcon fill="WHITE" glyphName="FILE_ALT" layoutX="110.0" layoutY="30.0" size="2em" />
+               </children>
+            </AnchorPane>
+            <FontAwesomeIcon fill="#0fbcf9" glyphName="SEARCH" layoutX="153.0" layoutY="29.0" size="1.8em" />
+            <FontAwesomeIcon id="remove-button" fx:id="removeButton" fill="#ff2323" glyphName="USER_TIMES" layoutX="941.0" layoutY="29.0" onMouseClicked="#removeButtonHandler" size="2em" styleClass="circle-icon" />
+            <FontAwesomeIcon fill="WHITE" glyphName="USER_PLUS" layoutX="1074.0" layoutY="28.0" size="2em" />
+            <FontAwesomeIcon fill="#86807f" glyphName="TIMES_CIRCLE" layoutX="407.0" layoutY="26.0" onMouseClicked="#clearSearchField" size="1.2em" />
+            <FontAwesomeIcon fill="#0fbcf9" glyphName="REFRESH" layoutX="1024.0" layoutY="29.0" onMouseClicked="#refreshTable" size="2em" />
+         </children>
+      </AnchorPane>
+   </top>
+   <center>
+      <JFXTreeTableView fx:id="patientTable" prefHeight="720.0" prefWidth="1050.0" stylesheets="@../design.css" BorderPane.alignment="CENTER">
+      <placeholder>
+         <Label text="Everyone is healthy :)" />
+      </placeholder>
+      </JFXTreeTableView>
+   </center>
+</BorderPane>

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_patientlist" default="compile.module.patientlist">
+  <dirname property="module.patientlist.basedir" file="${ant.file.module_patientlist}"/>
+  
+  <property name="module.jdk.home.patientlist" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.patientlist" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.patientlist" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.patientlist" value="-encoding UTF-8 -source 8 -target 8 ${compiler.args}"/>
+  
+  <property name="patientlist.output.dir" value="${module.patientlist.basedir}/out/production/PatientList"/>
+  <property name="patientlist.testoutput.dir" value="${module.patientlist.basedir}/out/test/PatientList"/>
+  
+  <path id="patientlist.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="patientlist.module.production.classpath">
+    <path refid="${module.jdk.classpath.patientlist}"/>
+    <path refid="library.jfoenix.classpath"/>
+    <pathelement location="${basedir}/sqlite-jdbc-3.23.1.jar"/>
+    <pathelement location="${basedir}/charm-glisten-4.4.1.jar"/>
+    <pathelement location="${basedir}/fontawesomefx-8.2.jar"/>
+  </path>
+  
+  <path id="patientlist.runtime.production.module.classpath">
+    <pathelement location="${patientlist.output.dir}"/>
+    <path refid="library.jfoenix.classpath"/>
+    <pathelement location="${basedir}/sqlite-jdbc-3.23.1.jar"/>
+    <pathelement location="${basedir}/charm-glisten-4.4.1.jar"/>
+    <pathelement location="${basedir}/fontawesomefx-8.2.jar"/>
+  </path>
+  
+  <path id="patientlist.module.classpath">
+    <path refid="${module.jdk.classpath.patientlist}"/>
+    <pathelement location="${patientlist.output.dir}"/>
+    <path refid="library.jfoenix.classpath"/>
+    <pathelement location="${basedir}/sqlite-jdbc-3.23.1.jar"/>
+    <pathelement location="${basedir}/charm-glisten-4.4.1.jar"/>
+    <pathelement location="${basedir}/fontawesomefx-8.2.jar"/>
+  </path>
+  
+  <path id="patientlist.runtime.module.classpath">
+    <pathelement location="${patientlist.testoutput.dir}"/>
+    <pathelement location="${patientlist.output.dir}"/>
+    <path refid="library.jfoenix.classpath"/>
+    <pathelement location="${basedir}/sqlite-jdbc-3.23.1.jar"/>
+    <pathelement location="${basedir}/charm-glisten-4.4.1.jar"/>
+    <pathelement location="${basedir}/fontawesomefx-8.2.jar"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.patientlist">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.patientlist">
+    <patternset refid="excluded.from.module.patientlist"/>
+  </patternset>
+  
+  <path id="patientlist.module.sourcepath">
+    <dirset dir="${module.patientlist.basedir}">
+      <include name="src"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.patientlist" depends="compile.module.patientlist.production,compile.module.patientlist.tests" description="Compile module sample"/>
+  
+  <target name="compile.module.patientlist.production" depends="register.custom.compilers" description="Compile module sample; production classes">
+    <mkdir dir="${patientlist.output.dir}"/>
+    <javac2 destdir="${patientlist.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.patientlist}/javac">
+      <compilerarg line="${compiler.args.patientlist}"/>
+      <bootclasspath refid="patientlist.module.bootclasspath"/>
+      <classpath refid="patientlist.module.production.classpath"/>
+      <src refid="patientlist.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.patientlist"/>
+    </javac2>
+    
+    <copy todir="${patientlist.output.dir}">
+      <fileset dir="${module.patientlist.basedir}/src">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.patientlist.tests" depends="register.custom.compilers,compile.module.patientlist.production" description="compile module sample; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.patientlist" description="cleanup module">
+    <delete dir="${patientlist.output.dir}"/>
+    <delete dir="${patientlist.testoutput.dir}"/>
+  </target>
+</project>

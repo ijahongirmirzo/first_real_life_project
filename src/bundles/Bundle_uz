@@ -1,0 +1,15 @@
+addition = Yangi qo'shish
+firstname = Ismi
+secondname = Familiyasi
+fathername = Otasining ismi
+adr = Manzili
+birthplc = Tug'ilgan manzili
+birthDay = Tug'ilgan kuni
+ill = Kasaligi
+emptyFild = Iltimos hamma narsani kiriting
+notchosen = Hech qanday bemor tanlamadingiz
+from = Dan
+to = Gacha
+datechoice = Kunni tanlang
+search = Qidiruv
+nodata = Hech qanday ma'lumot yoq

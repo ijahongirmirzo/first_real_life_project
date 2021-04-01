@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="390.0" prefWidth="600.0" style="-fx-background-color: linear-gradient(to bottom, #4facfe 0%, #00f2fe 100%);" stylesheets="@../design.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.TextEditorController">
+   <children>
+      <GridPane layoutX="17.0" layoutY="19.0" prefHeight="327.0" prefWidth="567.0" stylesheets="@../design.css" AnchorPane.bottomAnchor="54.0" AnchorPane.leftAnchor="17.0" AnchorPane.rightAnchor="16.0" AnchorPane.topAnchor="19.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="278.0" minWidth="10.0" prefWidth="104.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="468.0" minWidth="10.0" prefWidth="463.0" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold;" text="First name" wrappingWidth="90.1875" />
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold;" text="Last name" GridPane.rowIndex="1" />
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold;" text="Family name" GridPane.rowIndex="2" />
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold;" text="Address" GridPane.rowIndex="3" />
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold;" text="Birth address" GridPane.rowIndex="4" />
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold;" text="Birthday" GridPane.rowIndex="5" />
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold;" text="Illness" GridPane.rowIndex="6" />
+            <JFXTextField fx:id="firstNameSetter" focusColor="#0fbcf9" labelFloat="true" unFocusColor="WHITE" GridPane.columnIndex="1" />
+            <JFXTextField fx:id="lastNameSetter" focusColor="#0fbcf9" unFocusColor="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <JFXTextField fx:id="middleNameSetter" focusColor="#0fbcf9" unFocusColor="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <JFXTextField fx:id="addressSetter" focusColor="#0fbcf9" unFocusColor="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <JFXTextField fx:id="birthAddressSetter" focusColor="#0fbcf9" unFocusColor="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <JFXTextField fx:id="birthdaySetter" focusColor="#0fbcf9" maxWidth="77.0" minWidth="50.0" opacity="0.49" prefHeight="31.0" prefWidth="77.0" promptText="Day" unFocusColor="BLACK" GridPane.columnIndex="1" GridPane.rowIndex="5">
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin></JFXTextField>
+            <JFXComboBox fx:id="monthPicker" opacity="0.24" prefWidth="150.0" promptText="Month" GridPane.columnIndex="1" GridPane.rowIndex="5">
+               <GridPane.margin>
+                  <Insets left="110.0" />
+               </GridPane.margin>
+            </JFXComboBox>
+            <JFXTextField fx:id="birthYearSetter" focusColor="#0fbcf9" maxWidth="157.0" minWidth="157.0" opacity="0.43" prefHeight="31.0" prefWidth="157.0" promptText="Year" unFocusColor="BLACK" GridPane.columnIndex="1" GridPane.rowIndex="5">
+               <GridPane.margin>
+                  <Insets left="290.0" />
+               </GridPane.margin>
+            </JFXTextField>
+            <JFXTextField fx:id="illnessSetter" focusColor="#0fbcf9" unFocusColor="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+         </children>
+      </GridPane>
+      <JFXButton fx:id="cancelButton" layoutX="492.0" layoutY="351.0" onAction="#cancelButtonHandler" prefHeight="32.0" prefWidth="102.0" style="-fx-background-color: transparent; -fx-background-radius: 50; -fx-font-weight: bold;" stylesheets="@../design.css" text="Cancel" textAlignment="CENTER" textFill="WHITE" />
+      <JFXButton layoutX="382.0" layoutY="351.0" onAction="#saveButtonHandler" prefHeight="32.0" prefWidth="102.0" style="-fx-background-color: transparent; -fx-background-radius: 50; -fx-font-weight: bold;" stylesheets="@../design.css" text="  Save" textFill="WHITE" />
+      <FontAwesomeIcon fill="WHITE" fontSmoothingType="LCD" glyphName="SAVE" layoutX="393.0" layoutY="373.0" size="1.3em" />
+   </children>
+</AnchorPane>
